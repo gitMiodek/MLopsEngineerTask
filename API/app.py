@@ -38,7 +38,9 @@ class OutputResponse(BaseModel):
 
 
 print("hell")
-
+@app.get("/check")
+async def get_checked():
+    return {"hello":"world"}
 
 @app.post("/predict", response_model=OutputResponse)
 async def img_prediction(img_data: InputData):

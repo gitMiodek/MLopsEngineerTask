@@ -32,7 +32,12 @@ jobs:
         docker  build --tag ${{ env.IMAGE_NAME }} . && \
         docker run -d -p 8000:8000 ${{ env.IMAGE_NAME }}
 
-    
+    - name: check local curl1
+      run: curl https://localhost:8000/check
+    - name: check local curl2
+      run: curl https://docker.host.internal:8000/check
+    - name: check local curl3
+      run: curl https://127.7.0.1:8000/check
 
     - name: Run tests
       run: docker run --network="host"  ${{ env.IMAGE_NAME }} pytest
