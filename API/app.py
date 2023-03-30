@@ -37,9 +37,7 @@ class OutputResponse(BaseModel):
     predicted_label: str
 
 
-@app.get("/healthcheck")
-async def healthcheck():
-    return {"service": "healthy"}
+
 
 
 @app.post("/predict", response_model=OutputResponse)
