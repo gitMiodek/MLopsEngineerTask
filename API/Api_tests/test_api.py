@@ -1,7 +1,7 @@
 import requests
 import json
 
-URL = "http://localhost:8000/predict"
+URL = "http://0.0.0.0:8000/predict"
 
 
 # test if model recognize a plane
