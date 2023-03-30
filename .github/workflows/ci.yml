@@ -5,7 +5,8 @@ on:
     paths:
       - 'API/app.py'
       - 'API/cnn.py'
-
+env:
+  IMAGE_NAME: mlopsengineer
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
