@@ -37,7 +37,7 @@ class OutputResponse(BaseModel):
     predicted_label: str
 
 
-print("hello")
+print("hell")
 
 
 @app.post("/predict", response_model=OutputResponse)
