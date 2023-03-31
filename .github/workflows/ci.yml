@@ -30,7 +30,10 @@ jobs:
     - name: Build and run Docker image
       run: |
         docker  build --add-host=host.docker.internal:host-gateway --tag ${{ env.IMAGE_NAME }} . && \
-        docker run --network="host" -d -p 8000:8000 ${{ env.IMAGE_NAME }}
+    - name: Start interactive shell session
+        if: ${{ github.ref == 'refs/heads/main' }} # replace with your branch name
+      run: |
+    docker run -it --entrypoint sh ${{ env.IMAGE_NAME }}
 
 
 
