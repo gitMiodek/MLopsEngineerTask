@@ -1,8 +1,9 @@
 import requests
 import json
 
-URL1 = "http://localhost:8000/predict"
-URL2 = "http://172.17.0.1:8000/predict"
+URL1 = "http://0.0.0.0:8000/predict"
+URL2 = "http://host.docker.internal:8000/predict"
+
 
 
 # test if model recognize a plane
