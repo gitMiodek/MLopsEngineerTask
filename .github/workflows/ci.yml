@@ -30,7 +30,7 @@ jobs:
     - name: Build and run Docker image
       run: |
         docker  build --add-host=host.docker.internal:host-gateway --tag ${{ env.IMAGE_NAME }} . && \
-        docker run -d -p 8000:8000 ${{ env.IMAGE_NAME }}
+        docker run --network="host" -d -p 8000:8000 ${{ env.IMAGE_NAME }}
 
 
 

@@ -1,7 +1,7 @@
 import requests
 import json
 
-URL1 = "http://127.0.0.1:8000/predict"
+URL1 = "http://0.0.0.0:8000/predict"
 URL2 = "http://127.0.0.1:8000/predict"
 
 
