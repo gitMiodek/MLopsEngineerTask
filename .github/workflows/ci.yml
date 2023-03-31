@@ -37,7 +37,9 @@ jobs:
     - name: check ip of docker
       run:
         docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mati
-
+    - name: check curl of given ip
+      run:
+        curl http://172.17.0.3/check
 
 
 
