@@ -6,6 +6,7 @@ from torchvision import transforms
 from cnn import model
 from PIL import Image
 from typing import List
+import uvicorn
 
 # Create an instance of api
 app = FastAPI()
@@ -84,3 +85,5 @@ async def img_prediction(img_data: InputData):
     except Exception as e:
         raise HTTPException(status_code=500,
                             detail=str(e))
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

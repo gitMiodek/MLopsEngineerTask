@@ -15,6 +15,6 @@ WORKDIR /API
 EXPOSE 8000
 # Run application
 
-CMD ["uvicorn","app:app","--host","localhost","--port","8000"]
+CMD ["python3","app.py"]
 
 
