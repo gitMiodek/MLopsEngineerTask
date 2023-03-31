@@ -4,7 +4,7 @@ from torchvision.models.resnet import ResNet18_Weights
 from torchvision import models
 
 #inicialize model
-model = models.resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
+model = models.resnet18()
 num_ftrs = model.fc.in_features
 model.fc = nn.Linear(num_ftrs, 2)
 # Load trained state dict
