@@ -40,7 +40,7 @@ jobs:
 
     - name: Run tests
       run:
-          docker run --network my-network --name pytest-container my-pytest-image
+          docker run --network my-network --name pytest-container ${{ env.IMAGE_NAME }} pytest
 
 
     - name: Stop Docker container
