@@ -30,16 +30,12 @@ jobs:
     - name: Build and run Docker image
       run: |
         docker  build --tag ${{ env.IMAGE_NAME }} . && \
-        docker run  -p 8000:8000 ${{ env.IMAGE_NAME }}
+        docker run -d -p 8000:8000 ${{ env.IMAGE_NAME }}
 
-#    - name: check local curl1
-#      run: curl https://localhost:8000/check
-#
-    - name: check local curl3
-      run: curl https://172.17.0.2:8000/check
+
 
     - name: Run tests
-      run: docker run --network="host"  ${{ env.IMAGE_NAME }} pytest
+      run: docker run --net="host"  ${{ env.IMAGE_NAME }} pytest
 
     - name: Stop Docker container
       run: docker stop ${{ env.IMAGE_NAME }}
