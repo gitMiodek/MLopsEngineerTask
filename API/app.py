@@ -38,7 +38,7 @@ class OutputResponse(BaseModel):
     predicted_label: str
 
 
-print("helx2o")
+print("helxo")
 @app.get("/check")
 async def get_checked():
     return {"hello":"world"}
