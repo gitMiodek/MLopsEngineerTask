@@ -27,27 +27,21 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-    - name: Build and run Docker image
+    - name: Establish docker network
       run:
-        docker  build  --tag ${{ env.IMAGE_NAME }} .
-    - name: Run docker
-        #if: ${{ github.ref == 'refs/heads/main' }} # replace with your branch name
-      run:
-        docker run -d --name mati -p 8000:8000 ${{ env.IMAGE_NAME }}
-    - name: check ip of docker
-      run:
-        docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mati
-    - name: check docker ps
-      run:
-        docker ps
-    - name: check curl of given ip
-      run:
-        curl http://172.17.0.3:8000/check
+         docker network create my_network
+    - name: Build docker image
 
-
+      run:
+         docker  build  --tag ${{ env.IMAGE_NAME }} .
+    - name: Run api server
+      run:
+          docker run -d --network my-network --name api-server ${{ env.IMAGE_NAME }}
 
     - name: Run tests
-      run: docker run --network="host"  ${{ env.IMAGE_NAME }}:latest pytest
+      run:
+          docker run --network my-network --name pytest-container my-pytest-image
+
 
     - name: Stop Docker container
       run: docker stop ${{ env.IMAGE_NAME }}
