@@ -39,7 +39,6 @@ class OutputResponse(BaseModel):
 
 
 
-
 @app.post("/predict", response_model=OutputResponse)
 async def img_prediction(img_data: InputData):
     """
