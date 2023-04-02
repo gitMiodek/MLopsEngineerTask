@@ -37,7 +37,9 @@ class OutputResponse(BaseModel):
     probabilities: List[float]
     predicted_label: str
 
-
+@app.get("/check")
+async def get_healthcheck():
+    return {"status": "healthy"}
 
 @app.post("/predict", response_model=OutputResponse)
 async def img_prediction(img_data: InputData):

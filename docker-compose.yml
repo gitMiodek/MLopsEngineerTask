@@ -7,10 +7,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+
     networks:
       - network
     restart: unless-stopped
   tests:
+    command: sleep 30
+
     image: api_test_image
     build:
       context: .
