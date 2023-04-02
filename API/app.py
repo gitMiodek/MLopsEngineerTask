@@ -38,10 +38,7 @@ class OutputResponse(BaseModel):
     predicted_label: str
 
 
-print("hello")
-@app.get("/check")
-async def get_checked():
-    return {"hello":"world"}
+
 
 @app.post("/predict", response_model=OutputResponse)
 async def img_prediction(img_data: InputData):
