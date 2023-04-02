@@ -25,7 +25,7 @@ jobs:
 
     - name: Build and run api and tests
       run:
-         docker compose up -d --build --exit-code-from tests
+         docker compose up --build --exit-code-from tests
 
     - name: Push Docker image
       if: ${{job.status == 'success'}}
