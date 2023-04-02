@@ -15,7 +15,7 @@ The entire application has been containerized using Docker Compose. It consists 
 - The second service runs tests to ensure the proper functionality of the API. The testing service runs for approximately 30 seconds after the API service.
 
 ## Continuous Integration Pipeline
-The project includes a working CI pipeline that runs the Docker Compose file. If the tests are successful, the Docker container exits with a code of 0 and the image containing the API service is pushed to Docker Hub.
+The project includes a working CI pipeline that runs the Docker Compose file. If the tests are successful, the Docker container exits with a code of 0 and the image containing the API service is pushed to Docker Hub. The CI pipelina will trigger only if there are some changes to the api (app.py) or the model itself (cnn.py)
 
 
 # Instruction to use API
