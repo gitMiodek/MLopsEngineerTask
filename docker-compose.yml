@@ -12,6 +12,7 @@ services:
       - network
     restart: unless-stopped
   tests:
+    #to be sure service will wait for api-service to start up
     command: sleep 30
 
     image: api_test_image
