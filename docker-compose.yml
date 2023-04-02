@@ -1,0 +1,27 @@
+version: "3"
+services:
+  api:
+    image: api_image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - network
+    restart: unless-stopped
+  tests:
+    image: api_test_image
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    ports:
+      - "7000:7000"
+    networks:
+      - network
+    depends_on:
+      api:
+        condition: service_started
+networks:
+  network:
+    driver: "bridge"
